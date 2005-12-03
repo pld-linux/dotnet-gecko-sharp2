@@ -3,7 +3,7 @@ Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl):	Gecko# - wi±zanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp2
 Version:	0.11
-Release:	3
+Release:	4
 Epoch:		0
 License:	GPL
 Group:		Libraries
@@ -54,19 +54,12 @@ Pliki programistyczne Gecko#.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	docdir=%{_libdir}/monodoc/sources \
+	pkgconfigdir=%{_pkgconfigdir}
 
 if ! pkg-config --exists mono; then
 	sed -i -e 's/exec mono/exec mint/' $RPM_BUILD_ROOT%{_bindir}/webshot
-fi
-
-if test -f $RPM_BUILD_ROOT%{_pkgconfigdir} ; then
-  :
-else
-  install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
-  if [ "%{_pkgconfigdir}" != "/usr/lib/pkgconfig" ]; then
-  	mv $RPM_BUILD_ROOT/usr/lib/pkgconfig/* $RPM_BUILD_ROOT%{_pkgconfigdir}
-  fi
 fi
 
 %clean
@@ -75,10 +68,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-/usr/lib/mono/gac/gecko-sharp
+%{_prefix}/lib/mono/gac/gecko-sharp
 
 %files devel
 %defattr(644,root,root,755)
+%{_prefix}/lib/mono/gecko-sharp-2.0
 %{_pkgconfigdir}/*
-/usr/lib/monodoc/sources/*
-/usr/lib/mono/gecko-sharp-2.0
+%{_libdir}/monodoc/sources/*
