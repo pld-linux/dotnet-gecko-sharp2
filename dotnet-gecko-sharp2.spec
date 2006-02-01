@@ -15,6 +15,7 @@ BuildRequires:	automake
 BuildRequires:	dotnet-gtk-sharp2-devel >= 1.9.3
 BuildRequires:	gtk+2-devel >= 2:2.0.0
 BuildRequires:	mono-csharp >= 1.1.0
+BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
