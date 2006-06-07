@@ -19,7 +19,11 @@ BuildRequires:	monodoc >= 1.0
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
+%ifarch %{x8664} ia64 ppc64 s390x sparc64
+Requires:	libgtkembedmoz.so()(64bit)
+%else
 Requires:	libgtkembedmoz.so
+%endif
 ExcludeArch:	i386 alpha sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
