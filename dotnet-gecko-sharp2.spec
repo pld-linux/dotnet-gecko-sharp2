@@ -79,5 +79,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_prefix}/lib/mono/gecko-sharp-2.0
-%{_pkgconfigdir}/*
-%{_libdir}/monodoc/sources/*
+%{_pkgconfigdir}/gecko-sharp-2.0.pc
+%{_libdir}/monodoc/sources/gecko-sharp-docs.*
