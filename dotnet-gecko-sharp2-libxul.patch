@@ -1,0 +1,54 @@
+diff -urN gecko-sharp-2.0-0.13/gtkmozembed/gecko-sharp.dll.config.in gecko-sharp-2.0-0.13.new/gtkmozembed/gecko-sharp.dll.config.in
+--- gecko-sharp-2.0-0.13/gtkmozembed/gecko-sharp.dll.config.in	2008-03-10 21:30:29.000000000 +0100
++++ gecko-sharp-2.0-0.13.new/gtkmozembed/gecko-sharp.dll.config.in	2008-07-09 17:01:49.000000000 +0200
+@@ -3,5 +3,5 @@
+   <dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+   <dllmap dll="libatk-1.0-0.dll" target="libatk-1.0@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+   <dllmap dll="libgtk-win32-2.0-0.dll" target="libgtk-x11-2.0@LIB_PREFIX@.0@LIB_SUFFIX@"/>
+-  <dllmap dll="gtkembedmoz.dll" target="libgtkembedmoz@LIB_PREFIX@@LIB_SUFFIX@"/>
++  <dllmap dll="gtkembedmoz.dll" target="libxul@LIB_PREFIX@@LIB_SUFFIX@"/>
+ </configuration>
+diff -urN gecko-sharp-2.0-0.13/gtkmozembed/gtkgecko-api.raw gecko-sharp-2.0-0.13.new/gtkmozembed/gtkgecko-api.raw
+--- gecko-sharp-2.0-0.13/gtkmozembed/gtkgecko-api.raw	2008-03-10 21:30:29.000000000 +0100
++++ gecko-sharp-2.0-0.13.new/gtkmozembed/gtkgecko-api.raw	2008-07-09 17:01:49.000000000 +0200
+@@ -349,6 +349,12 @@
+           <parameter type="const-char*" name="aPath" />
+         </parameters>
+       </method>
++      <method name="SetPath" cname="gtk_moz_embed_set_path" shared="true">
++        <return-type type="void" />
++        <parameters>
++          <parameter type="const-char*" name="aPath" />
++        </parameters>
++      </method>
+       <method name="SetProfilePath" cname="gtk_moz_embed_set_profile_path" shared="true">
+         <return-type type="void" />
+         <parameters>
+diff -urN gecko-sharp-2.0-0.13/gtkmozembed/gtkgecko-api.xml gecko-sharp-2.0-0.13.new/gtkmozembed/gtkgecko-api.xml
+--- gecko-sharp-2.0-0.13/gtkmozembed/gtkgecko-api.xml	2008-03-10 21:30:35.000000000 +0100
++++ gecko-sharp-2.0-0.13.new/gtkmozembed/gtkgecko-api.xml	2008-07-09 17:01:49.000000000 +0200
+@@ -349,6 +349,12 @@
+           <parameter type="const-char*" name="aPath" />
+         </parameters>
+       </method>
++      <method name="SetPath" cname="gtk_moz_embed_set_path" shared="true">
++        <return-type type="void" />
++        <parameters>
++          <parameter type="const-char*" name="aPath" />
++        </parameters>
++      </method>
+       <method name="SetProfilePath" cname="gtk_moz_embed_set_profile_path" shared="true">
+         <return-type type="void" />
+         <parameters>
+diff -urN gecko-sharp-2.0-0.13/gtkmozembed/WebControl.custom gecko-sharp-2.0-0.13.new/gtkmozembed/WebControl.custom
+--- gecko-sharp-2.0-0.13/gtkmozembed/WebControl.custom	2008-03-10 21:30:29.000000000 +0100
++++ gecko-sharp-2.0-0.13.new/gtkmozembed/WebControl.custom	2008-07-09 17:02:13.000000000 +0200
+@@ -45,7 +45,7 @@
+ 	set {
+ 		compPath = value;
+ 		IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (compPath);
+-		gtk_moz_embed_set_comp_path(native_value);
++		// gtk_moz_embed_set_comp_path(native_value);
+ 		GLib.Marshaller.Free (native_value);
+ 	}
+ }
