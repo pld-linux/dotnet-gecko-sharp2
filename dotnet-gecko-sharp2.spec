@@ -38,7 +38,7 @@ Gecko# - wiązanie Gtk# dla Mozilli.
 Summary:	Gecko# development files
 Summary(pl.UTF-8):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Gecko# development files.
