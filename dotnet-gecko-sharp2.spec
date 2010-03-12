@@ -3,7 +3,7 @@ Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl.UTF-8):	Gecko# - wiązanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp2
 Version:	0.13
-Release:	2
+Release:	3
 License:	LGPL v2.1/MPL v1.1
 Group:		Libraries
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
@@ -16,7 +16,7 @@ BuildRequires:	automake
 BuildRequires:	dotnet-gtk-sharp2-devel >= 1.9.3
 BuildRequires:	gtk+2-devel >= 2:2.0.0
 BuildRequires:	mono-csharp >= 1.1.0
-BuildRequires:	monodoc >= 1.0
+BuildRequires:	monodoc >= 2.6
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildConflicts:	gecko-sharp < 0.2
@@ -39,6 +39,7 @@ Summary:	Gecko# development files
 Summary(pl.UTF-8):	Pliki programistyczne Gecko#
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	monodoc >= 2.6
 
 %description devel
 Gecko# development files.
@@ -62,7 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	monodocdir=%{_libdir}/monodoc/sources \
 	pkgconfigdir=%{_pkgconfigdir}
 
 if ! pkg-config --exists mono; then
@@ -81,4 +81,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_prefix}/lib/mono/gecko-sharp-2.0
 %{_pkgconfigdir}/gecko-sharp-2.0.pc
-%{_libdir}/monodoc/sources/gecko-sharp-docs.*
+%{_prefix}/lib/monodoc/sources/gecko-sharp-docs.*
