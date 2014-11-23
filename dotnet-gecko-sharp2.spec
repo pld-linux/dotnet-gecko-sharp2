@@ -1,3 +1,4 @@
+# NOTE: it uses gtk_moz API removed from libxul since xulrunner 5
 %include	/usr/lib/rpm/macros.mono
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl.UTF-8):	Gecko# - wiązanie Gtk# dla Mozilli
@@ -6,8 +7,7 @@ Version:	0.13
 Release:	4
 License:	LGPL v2.1/MPL v1.1
 Group:		Libraries
-# latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
-Source0:	http://ftp.novell.com/pub/mono/sources/gecko-sharp2/gecko-sharp-2.0-%{version}.tar.bz2
+Source0:	http://download.mono-project.com/sources/gecko-sharp2/gecko-sharp-2.0-%{version}.tar.bz2
 # Source0-md5:	f88eaa06e71f8d8fa34cf59a3e034a6b
 Patch0:		%{name}-libxul.patch
 URL:		http://www.mono-project.com/
