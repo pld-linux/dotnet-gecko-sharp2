@@ -1,5 +1,4 @@
 # NOTE: it uses gtk_moz API removed from libxul since xulrunner 5
-%include	/usr/lib/rpm/macros.mono
 Summary:	Gecko# - A Gtk# Mozilla binding
 Summary(pl.UTF-8):	Gecko# - wiązanie Gtk# dla Mozilli
 Name:		dotnet-gecko-sharp2
