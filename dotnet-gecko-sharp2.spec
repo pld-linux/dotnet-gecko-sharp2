@@ -48,7 +48,7 @@ Pliki programistyczne Gecko#.
 
 %prep
 %setup -q -n gecko-sharp-2.0-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__aclocal}
